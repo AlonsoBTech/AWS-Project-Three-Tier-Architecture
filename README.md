@@ -1,1 +1,1 @@
-# AWS-Project-Three-Tier-Architecture
+# AWS Project Three Tier Architecture
