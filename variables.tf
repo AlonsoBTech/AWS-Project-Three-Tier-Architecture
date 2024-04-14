@@ -1,3 +1,5 @@
+#### ALL VARIABLE VALUES ARE KEPT IN "TERRAFORM.TFVARS" ####
+
 variable "aws_region" {
   type = string
 }
