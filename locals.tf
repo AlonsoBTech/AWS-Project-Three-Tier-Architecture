@@ -15,10 +15,6 @@ locals {
 }
 
 locals {
-  my_ip = jsondecode(data.http.my_public_ip.response_body)
-}
-
-locals {
   web_alb_sg = {
     web_alb = {
       name        = "web_alb_sg"
