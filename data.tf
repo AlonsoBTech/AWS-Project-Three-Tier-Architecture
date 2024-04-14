@@ -1,12 +1,5 @@
 data "aws_availability_zones" "available" {}
 
-data "http" "my_public_ip" {
-  url = "https://ifconfig.co/json"
-  request_headers = {
-    Accept = "application/json"
-  }
-}
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 
