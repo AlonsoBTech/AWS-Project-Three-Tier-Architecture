@@ -134,7 +134,6 @@ resource "aws_security_group" "app_asg_sg" {
   }
 }
 
-
 resource "aws_security_group" "db_sg" {
   name        = "db_sg"
   description = "Database Security Group"
