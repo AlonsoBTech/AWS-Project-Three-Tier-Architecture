@@ -11,7 +11,8 @@
 
 
 
-![Architecture](https://github.com/AlonsoBTech/AWS-Project-Three-Tier-Architecture/assets/160416175/8fc28510-9772-4c23-8cb5-a690218aa53c)
+![Architecture](https://github.com/AlonsoBTech/AWS-Project-Three-Tier-Architecture/assets/160416175/39c837b9-7886-43e7-b27e-eb06ec05e14e)
+
 
 
 ## <a name="prerequisites">⚙️ Prerequisites</a>
