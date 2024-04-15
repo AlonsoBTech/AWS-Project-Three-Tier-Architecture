@@ -1,3 +1,4 @@
+### Creating VPC
 resource "aws_vpc" "three_tier" {
   cidr_block           = var.vpc_cidr
   instance_tenancy     = "default"
@@ -9,6 +10,7 @@ resource "aws_vpc" "three_tier" {
   }
 }
 
+### Creating Web Tier Subnets
 resource "aws_subnet" "web_tier_subnet" {
   count                   = 2
   vpc_id                  = aws_vpc.three_tier.id
@@ -22,6 +24,7 @@ resource "aws_subnet" "web_tier_subnet" {
   }
 }
 
+### Creating App Tier Subnets
 resource "aws_subnet" "app_tier_subnet" {
   count                   = 2
   vpc_id                  = aws_vpc.three_tier.id
@@ -35,6 +38,7 @@ resource "aws_subnet" "app_tier_subnet" {
   }
 }
 
+### Creating Data Tier Subnet
 resource "aws_subnet" "data_tier_subnet" {
   count                   = 2
   vpc_id                  = aws_vpc.three_tier.id
@@ -48,6 +52,7 @@ resource "aws_subnet" "data_tier_subnet" {
   }
 }
 
+### Creating VPC Internet Gateway
 resource "aws_internet_gateway" "three_tier_igw" {
   vpc_id = aws_vpc.three_tier.id
 
@@ -56,6 +61,7 @@ resource "aws_internet_gateway" "three_tier_igw" {
   }
 }
 
+### Creating Elastic IP for NAT Gateway
 resource "aws_eip" "nat_eip" {
   count  = 2
   domain = "vpc"
@@ -65,6 +71,7 @@ resource "aws_eip" "nat_eip" {
   }
 }
 
+### Creating NAT Gateway for App Subnet Internet Access
 resource "aws_nat_gateway" "three_tier_nat" {
   count         = 2
   allocation_id = aws_eip.nat_eip[count.index].id
@@ -77,6 +84,7 @@ resource "aws_nat_gateway" "three_tier_nat" {
   }
 }
 
+### Creating Public Route Table
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.three_tier.id
 
@@ -90,6 +98,7 @@ resource "aws_route_table" "public_rt" {
   }
 }
 
+### Creating Private Route Table
 resource "aws_default_route_table" "default_rt" {
   default_route_table_id = aws_vpc.three_tier.default_route_table_id
 
@@ -103,18 +112,21 @@ resource "aws_default_route_table" "default_rt" {
   }
 }
 
+### Creating Public Route Table Associations
 resource "aws_route_table_association" "public_rt_asso_1" {
   count          = 2
   subnet_id      = aws_subnet.web_tier_subnet.*.id[count.index]
   route_table_id = aws_route_table.public_rt.id
 }
 
+### Creating Private Route Table Associations
 resource "aws_route_table_association" "private_rt_asso_1" {
   count          = 2
   subnet_id      = aws_subnet.app_tier_subnet.*.id[count.index]
   route_table_id = aws_default_route_table.default_rt.id
 }
 
+### Creating Private Route Table Associations
 resource "aws_route_table_association" "private_rt_asso_2" {
   count          = 2
   subnet_id      = aws_subnet.data_tier_subnet.*.id[count.index]
