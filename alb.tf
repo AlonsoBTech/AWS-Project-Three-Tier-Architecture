@@ -1,4 +1,4 @@
-### Creating Web Tier Application Load Balancer
+### Creating Web Tier ALB
 resource "aws_lb" "web_alb" {
   name               = "web-alb"
   load_balancer_type = "application"
@@ -11,7 +11,7 @@ resource "aws_lb" "web_alb" {
   }
 }
 
-### Creating Web Tier Application Load Balancer Targer Group
+### Creating Web Tier ALB Targer Group
 resource "aws_lb_target_group" "web_tier_tg" {
   name     = "web-tier-tg"
   port     = var.web_alb_tg_port
@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "web_tier_tg" {
 
 }
 
-### Creating Web Tier Application Load Balancer Listener
+### Creating Web Tier ALB Listener
 resource "aws_lb_listener" "web_tier_listener" {
   load_balancer_arn = aws_lb.web_alb.arn
   port              = var.web_listener_port     #80
@@ -42,7 +42,7 @@ resource "aws_lb_listener" "web_tier_listener" {
   }
 }
 
-### Creating App Tier Application Load Balancer
+### Creating App Tier ALB
 resource "aws_lb" "app_alb" {
   name               = "app-alb"
   load_balancer_type = "application"
@@ -55,7 +55,7 @@ resource "aws_lb" "app_alb" {
   }
 }
 
-### Creating App Tier Application Load Balancer Targer Group
+### Creating App Tier ALB Targer Group
 resource "aws_lb_target_group" "app_tier_tg" {
   name     = "app-tier-tg"
   port     = var.app_alb_tg_port
@@ -73,7 +73,7 @@ resource "aws_lb_target_group" "app_tier_tg" {
   }
 }
 
-### Creating App Tier Application Load Balancer Listener
+### Creating App Tier ALB Listener
 resource "aws_lb_listener" "app_tier_listener" {
   load_balancer_arn = aws_lb.app_alb.arn
   port              = var.app_listener_port     #80
