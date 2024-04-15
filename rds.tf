@@ -1,3 +1,4 @@
+### Creating Database Subnet Group
 resource "aws_db_subnet_group" "rds_db_sub_grp" {
   name       = "rds_db_sub_grp"
   subnet_ids = aws_subnet.data_tier_subnet.*.id
@@ -7,6 +8,7 @@ resource "aws_db_subnet_group" "rds_db_sub_grp" {
   }
 }
 
+### Creating RDS MYSQL Database
 resource "aws_db_instance" "data_tier_db" {
   identifier             = var.db_identifier
   allocated_storage      = var.db_storage
