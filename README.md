@@ -9,7 +9,11 @@
 
 ## <a name="introduction">🤖 Introduction</a>
 
-
+Creating a highly available, scalable and secure AWS Three Tier Architecture for a web application. A three tier architecture offers
+better scalability, flexibility and even maintainability and even cost efficiency. As each tier is sepearted we can use less intensive
+resources where need and use more high performance resources where required, this allows for us to optimize how we spend on our resources.
+Security is one of the key features here as well, since each tier is seperated we can tailor our security procedures better mitigating
+the risk for vulnerabilities.
 
 ![Architecture](https://github.com/AlonsoBTech/AWS-Project-Three-Tier-Architecture/assets/160416175/39c837b9-7886-43e7-b27e-eb06ec05e14e)
 
