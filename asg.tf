@@ -27,7 +27,7 @@ resource "aws_launch_template" "web_tier_launch_tpl" {
   }
 }
 
-### Creating Web Tier ASG 
+### Creating Web Tier ASG
 resource "aws_autoscaling_group" "web_tier_asg" {
   desired_capacity    = 2
   max_size            = 2
