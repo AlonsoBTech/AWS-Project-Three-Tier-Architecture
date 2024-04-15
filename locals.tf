@@ -1,19 +1,24 @@
+### Defining Subnet CIDR Range for Web Tier Subnets to only have even numbers
 locals {
   web_subnet_cidr = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
 }
 
+### Defining Subnet CIDR Range for App Tier Subnets to only have odd numbers
 locals {
   app_subnet_cidr = [for i in range(1, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
 }
 
+### Defining Subnet CIDR Range for Data Tier Subnets to only have odd numbers
 locals {
   data_subnet_cidr = [for i in range(5, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
 }
 
+### Defining Availability Zones to use
 locals {
   azs = data.aws_availability_zones.available.names
 }
 
+### Defining Security Groups Ingress Rules
 locals {
   web_alb_sg = {
     web_alb = {
