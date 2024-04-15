@@ -10,7 +10,9 @@
 ## <a name="introduction">🤖 Introduction</a>
 
 
-![Architecture](https://github.com/AlonsoBTech/AWS-Project-Three-Tier-Architecture/assets/160416175/d5077e80-ba6c-4639-8a30-ae14e7997aa6)
+
+![Architecture](https://github.com/AlonsoBTech/AWS-Project-Three-Tier-Architecture/assets/160416175/8fc28510-9772-4c23-8cb5-a690218aa53c)
+
 
 ## <a name="prerequisites">⚙️ Prerequisites</a>
 
