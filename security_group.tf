@@ -1,3 +1,4 @@
+### Creating Security Group for SSH
 resource "aws_security_group" "ssh_sg" {
   name        = "ssh_sg"
   description = "SSH Security Group"
@@ -22,6 +23,7 @@ resource "aws_security_group" "ssh_sg" {
   }
 }
 
+### Creating Security Group for Web Tier ALB
 resource "aws_security_group" "web_alb_sg" {
   for_each    = local.web_alb_sg
   name        = each.value.name
@@ -50,6 +52,7 @@ resource "aws_security_group" "web_alb_sg" {
   }
 }
 
+### Creating Security Group for Web Tier ASG
 resource "aws_security_group" "web_asg_sg" {
   for_each    = local.web_asg_sg
   name        = each.value.name
@@ -78,6 +81,7 @@ resource "aws_security_group" "web_asg_sg" {
   }
 }
 
+### Creating Security Group for App Tier ALB
 resource "aws_security_group" "app_alb_sg" {
   for_each    = local.app_alb_sg
   name        = each.value.name
@@ -106,6 +110,7 @@ resource "aws_security_group" "app_alb_sg" {
   }
 }
 
+### Creating Security Group for App Tier ASG
 resource "aws_security_group" "app_asg_sg" {
   for_each    = local.app_asg_sg
   name        = each.value.name
@@ -134,6 +139,7 @@ resource "aws_security_group" "app_asg_sg" {
   }
 }
 
+### Creating Security Group for Data Tier
 resource "aws_security_group" "db_sg" {
   name        = "db_sg"
   description = "Database Security Group"
