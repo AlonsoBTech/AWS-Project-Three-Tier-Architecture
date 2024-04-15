@@ -1,5 +1,7 @@
+### Defining Availability Zones to use
 data "aws_availability_zones" "available" {}
 
+### Defining EC2 AMI to use for Web & App Tier ASG
 data "aws_ami" "ubuntu" {
   most_recent = true
 
