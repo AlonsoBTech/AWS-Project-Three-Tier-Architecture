@@ -18,7 +18,7 @@ locals {
   azs = data.aws_availability_zones.available.names
 }
 
-### Defining Security Groups Ingress Rules
+### Defining Web & App Tier Security Groups Ingress Rules
 locals {
   web_alb_sg = {
     web_alb = {
