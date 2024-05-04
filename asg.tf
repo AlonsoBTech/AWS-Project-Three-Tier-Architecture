@@ -14,7 +14,7 @@ resource "aws_launch_template" "web_tier_launch_tpl" {
     device_index    = 0
     security_groups = [aws_security_group.web_asg_sg["web_asg"].id]
   }
-  user_data = filebase64("${path.root}/web_userdata.sh")
+  user_data = filebase64("web_userdata.sh")
   tag_specifications {
     resource_type = "instance"
     tags = {
@@ -58,7 +58,7 @@ resource "aws_launch_template" "app_tier_launch_tpl" {
     device_index    = 0
     security_groups = [aws_security_group.app_asg_sg["app_asg"].id]
   }
-  user_data = filebase64("${path.root}/app_userdata.sh")
+  user_data = filebase64("app_userdata.sh")
   tag_specifications {
     resource_type = "instance"
     tags = {
