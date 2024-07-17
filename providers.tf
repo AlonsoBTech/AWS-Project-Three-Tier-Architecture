@@ -6,11 +6,11 @@ terraform {
     }
   }
 
-    backend "s3" {
-    bucket = "three-tier-terraform-backend"
-      key = "three-tier/terraform.tfstate"
-      region = "ca-central-1"
-    }
+  backend "s3" {
+    bucket = "PLACE_NAME_OF_BACKEND_S3_BUCKET"
+    key    = "PLACE_KEY_NAME_HERE"
+    region = "ca-central-1"
+  }
 }
 
 provider "aws" {
